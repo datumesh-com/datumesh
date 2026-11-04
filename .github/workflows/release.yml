@@ -29,6 +29,8 @@ jobs:
           echo "tag $GITHUB_REF_NAME, datumesh $v"
           test "$tag" = "$v"
 
+  # Not after publish: the binaries are built and attached whether or not the crate was
+  # published by this run (0.1.0 is first published with a token).
   binaries:
     needs: [test, version]
     name: binary (${{ matrix.target }})
@@ -86,18 +88,22 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - run: rustup toolchain install 1.99 --profile minimal && rustup default 1.99
-      - name: version already published
+      # A version already on crates.io (0.1.0 is first published with a token, before Trusted
+      # Publishing is configured) is skipped rather than failing the run.
+      - name: versions already published
         id: published
         run: |
           v="${GITHUB_REF_NAME#v}"
-          code="$(curl -s -o /dev/null -w '%{http_code}' -A 'datumesh release (github.com/datumesh-com/datumesh)' "https://crates.io/api/v1/crates/datumesh/$v")"
-          if [ "$code" = 200 ]; then out=true; else out=false; fi
-          echo "datumesh $v published: $out"
-          echo "published=$out" >> "$GITHUB_OUTPUT"
+          for c in datumesh; do
+            code="$(curl -s -o /dev/null -w '%{http_code}' -A 'datumesh release (github.com/datumesh-com/datumesh)' "https://crates.io/api/v1/crates/$c/$v")"
+            if [ "$code" = 200 ]; then out=true; else out=false; fi
+            echo "$c $v published: $out"
+            echo "${c//-/_}=$out" >> "$GITHUB_OUTPUT"
+          done
       - uses: rust-lang/crates-io-auth-action@v1
         id: auth
-        if: steps.published.outputs.published != 'true'
+        if: steps.published.outputs.datumesh != 'true'
       - run: cargo publish --locked
-        if: steps.published.outputs.published != 'true'
+        if: steps.published.outputs.datumesh != 'true'
         env:
           CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
