@@ -17,11 +17,7 @@ fn datumesh(home: &std::path::Path, args: &[&str]) -> (i32, String, String) {
         .env_remove("DATUMESH_HOME")
         .output()
         .unwrap();
-    (
-        out.status.code().unwrap_or(-1),
-        String::from_utf8(out.stdout).unwrap(),
-        String::from_utf8(out.stderr).unwrap(),
-    )
+    (out.status.code().unwrap_or(-1), String::from_utf8(out.stdout).unwrap(), String::from_utf8(out.stderr).unwrap())
 }
 
 #[test]
