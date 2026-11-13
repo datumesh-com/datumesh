@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.2 (unreleased)
+## 0.2.0 (2026-11-13)
 
-The `datumesh` binary of datumesh-local 0.1.2: the licence gate is the engine's licence
+The `datumesh` binary of datumesh-local 0.2.0: the licence gate is the engine's licence
 inheritance (spec-0.4.3 8.5) with the publisher's declarations; a declared restricted input
 is forwarded, an undeclared one answered `unlicensed` here, open and local inputs computed
 here with the inherited licence.

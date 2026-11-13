@@ -1,6 +1,6 @@
 [package]
 name = "datumesh"
-version = "0.1.2"
+version = "0.2.0"
 description = "The datumesh command: the Datumesh local resolver (get, define, publish, explain, find, prefetch, refresh, export, import, verify, serve). The library is datumesh-local."
 edition = "2021"
 rust-version = "1.97"
@@ -18,7 +18,7 @@ name = "datumesh"
 path = "src/main.rs"
 
 [dependencies]
-datumesh-local = "0.1.2"
+datumesh-local = "0.2.0"
 
 [profile.release]
 codegen-units = 1
