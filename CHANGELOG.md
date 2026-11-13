@@ -1,6 +1,13 @@
 # Changelog
 
-## 0.1.1 (unreleased)
+## 0.1.2 (unreleased)
+
+The `datumesh` binary of datumesh-local 0.1.2: the licence gate is the engine's licence
+inheritance (spec-0.4.3 8.5) with the publisher's declarations; a declared restricted input
+is forwarded, an undeclared one answered `unlicensed` here, open and local inputs computed
+here with the inherited licence.
+
+## 0.1.1 (2026-11-05)
 
 The `datumesh` binary of datumesh-local 0.1.1: on Windows, a host name that does not resolve
 answers `E_FOREIGN_UNAVAILABLE` with `detail` `dns`, not `network`
