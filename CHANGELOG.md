@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.2.1 (2026-11-14)
+## 0.2.2 (2026-11-14)
 
-The `datumesh` binary of datumesh-local 0.2.1 (spec-0.5.0): `describe <id>` (a class name, a key
+The `datumesh` binary of datumesh-local 0.2.2 (spec-0.5.0; 0.2.1 was tagged, not published): `describe <id>` (a class name, a key
 encoding, an object id, a short id or a cell id; exit 0 for an answer, 3 for any other),
 `define <name> --class <file>` (a class under `local/`), and `get` of a method call
 (`N(keys).m(args)`, `N[label]`), whose envelope carries `resolved` and whose stderr line names the
