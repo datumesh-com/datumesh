@@ -73,21 +73,26 @@ fn a_local_class_is_defined_described_and_called() {
     std::fs::write(
         &cells,
         concat!(
-            r#"{"cell": {"fn": "local/pair/rate", "args": {"base": {"type": "string", "value": "EUR"}, "date": {"type": "date", "value": "2026-03-02"}, "quote": {"type": "string", "value": "USD"}}}, "value": {"type": "number", "value": "1.2"}, "tx": "2026-03-02T16:00:00.000000Z", "asof": "2026-03-02T16:00:00.000000Z", "licence": "CC0-1.0", "summary": "A rate."}"#,
+            r#"{"cell": {"fn": "local/pair/rate", "args": {"base": {"type": "string", "value": "EUR"}, "date": {"type": "date", "value": "2099-03-02"}, "quote": {"type": "string", "value": "USD"}}}, "value": {"type": "number", "value": "1.2"}, "tx": "2099-03-02T16:00:00.000000Z", "asof": "2099-03-02T16:00:00.000000Z", "licence": "CC0-1.0", "summary": "A rate."}"#,
             "\n"
         ),
     )
     .unwrap();
     let (code, _, err) = datumesh(&h, &["publish", cells.to_str().unwrap()]);
     assert_eq!(code, 0, "{err}");
-    let (code, out, err) = datumesh(&h, &["get", "local/pair(EUR, USD).rate(2026-03-02)"]);
+    let (code, out, err) =
+        datumesh(&h, &["get", "local/pair(EUR, USD).rate(2099-03-02)?asof=2099-03-03T00:00:00.000000Z"]);
     assert_eq!(code, 0, "{err}");
     assert!(out.contains("\"resolved\":{"), "{out}");
-    let canonical = r#"local.invalid/pair/rate(base: "EUR", date: 2026-03-02, quote: "USD")"#;
+    let canonical = r#"local.invalid/pair/rate(base: "EUR", date: 2099-03-02, quote: "USD")"#;
     assert!(err.contains(canonical), "the stderr line shows the canonical call: {err}");
-    let (code, plain, err) = datumesh(&h, &["get", r#"local/pair/rate(base: "EUR", quote: "USD", date: 2026-03-02)"#]);
+    let (code, plain, err) = datumesh(
+        &h,
+        &["get", r#"local/pair/rate(base: "EUR", quote: "USD", date: 2099-03-02)?asof=2099-03-03T00:00:00.000000Z"#],
+    );
     assert_eq!(code, 0, "{err}");
     assert!(!plain.contains("\"resolved\""), "{plain}");
-    assert_eq!(json_member(&plain, "hash"), json_member(&out, "hash"), "the same receipt");
+    // An ok envelope carries the receipt, not its hash: the same receipt has the same signature.
+    assert_eq!(json_member(&plain, "sig"), json_member(&out, "sig"), "the same receipt");
     let _ = std::fs::remove_dir_all(&h);
 }
