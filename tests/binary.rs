@@ -46,7 +46,9 @@ fn first_run_offline_key_and_an_unfetched_cell() {
     let (code, out, err) =
         datumesh(&h, &["--offline", "get", r#"ecb/fx_rate(base: "EUR", quote: "USD", date: 2026-10-30)"#]);
     assert_eq!(code, 3, "{err}");
-    assert_eq!(out.trim_end(), r#"{"detail":"offline","error":"E_FOREIGN_UNAVAILABLE","outcome":"error"}"#);
+    // The prefix request also carries `resolved` (datumesh-local 0.3.0).
+    assert!(out.starts_with(r#"{"detail":"offline","error":"E_FOREIGN_UNAVAILABLE","outcome":"error","resolved":{"#), "{out}");
+    assert!(out.contains(r#""call":"mesh-test.datumesh.com/ecb/fx_rate(base: \"EUR\", date: 2026-10-30, quote: \"USD\")""#), "{out}");
     assert!(err.contains("offline"), "{err}");
     let (code, _, err) = datumesh(&h, &["serve", "--listen", "0.0.0.0:0"]);
     assert_eq!(code, 1);

@@ -91,7 +91,9 @@ fn a_local_class_is_defined_described_and_called() {
         &["get", r#"local/pair/rate(base: "EUR", quote: "USD", date: 2099-03-02)?asof=2099-03-03T00:00:00.000000Z"#],
     );
     assert_eq!(code, 0, "{err}");
-    assert!(!plain.contains("\"resolved\""), "{plain}");
+    // The plain read written with the `local/` prefix resolves an alias only, no method.
+    assert!(plain.contains("\"kind\":\"alias\""), "{plain}");
+    assert!(!plain.contains("\"kind\":\"method\""), "{plain}");
     // An ok envelope carries the receipt, not its hash: the same receipt has the same signature.
     assert_eq!(json_member(&plain, "sig"), json_member(&out, "sig"), "the same receipt");
     let _ = std::fs::remove_dir_all(&h);
