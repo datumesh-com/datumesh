@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (unreleased)
+
+The `datumesh` binary of datumesh-local 0.3.0: `datumesh mcp` (MCP over stdio, revision
+2026-07-28 with the legacy `initialize` for 2025-11-25 and 2025-06-18; `--http [--port N]`,
+Streamable HTTP on 127.0.0.1 and [::1] only, define and publish behind a bearer token kept in a
+0600 file), `key rotate`, `trust add|revoke|list`, `root --namespace --key [--export]`, and
+`publish` printing each cell's call form and URI. Rule A: no binding starts before now.
+
 ## 0.2.2 (2026-11-14)
 
 The `datumesh` binary of datumesh-local 0.2.2 (spec-0.5.0; 0.2.1 was tagged, not published): `describe <id>` (a class name, a key
