@@ -402,6 +402,7 @@ dependencies = [
  "cfg-if",
  "cpufeatures",
  "curve25519-dalek-derive",
+ "digest",
  "fiat-crypto",
  "rustc_version",
  "subtle",
@@ -420,7 +421,7 @@ dependencies = [
 
 [[package]]
 name = "datumesh"
-version = "0.2.2"
+version = "0.3.1"
 dependencies = [
  "datumesh-local",
 ]
@@ -461,9 +462,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-http"
-version = "0.2.2"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee6494e4c5581201be73daa491390be22f1bbb78a27908eabf26156172489ab7"
+checksum = "79443131117afea12ef6570086ba52bf093ccc479d1c683a6efe0faee4783a97"
 dependencies = [
  "arrow-array",
  "arrow-ipc",
@@ -473,6 +474,7 @@ dependencies = [
  "datumesh-engine",
  "datumesh-formula",
  "datumesh-store",
+ "ed25519-dalek",
  "getrandom 0.3.4",
  "serde",
  "serde_json",
@@ -487,9 +489,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-local"
-version = "0.2.2"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f46f9eac30be26d6cfe2cda5b79c7fa6a1aff90b89655d4a23d4d75987e533c7"
+checksum = "b8a87cc532c252e5e498ec569d7f70301246c390bdc7c3473da1dddd15ff10b7"
 dependencies = [
  "axum",
  "datumesh-core",
@@ -505,9 +507,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-store"
-version = "0.4.1"
+version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e332e71dbbd47e4b3f2610f5788230a6d05331386a3866ccdaf507b10df965f"
+checksum = "e0dee9ab1865a89949e457ef79adc054f185a9ab2d3b7eab1c6998e4ebac1b74"
 dependencies = [
  "datumesh-core",
  "postgres",
@@ -551,6 +553,27 @@ dependencies = [
  "const-oid 0.10.2",
  "crypto-common",
  "ctutils",
+]
+
+[[package]]
+name = "ed25519"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "29fcf32e6c73d1079f83ab4d782de2d81620346a5f38c6237a86a22f8368980a"
+dependencies = [
+ "signature",
+]
+
+[[package]]
+name = "ed25519-dalek"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6ebaa1a2bf1290ab3bfe5a7b771d050ebffab2711c19a81691c683a5144a25de"
+dependencies = [
+ "curve25519-dalek",
+ "ed25519",
+ "sha2",
+ "subtle",
 ]
 
 [[package]]
@@ -1472,6 +1495,12 @@ dependencies = [
  "errno",
  "libc",
 ]
+
+[[package]]
+name = "signature"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "28d567dcbaf0049cb8ac2608a76cd95ff9e4412e1899d389ee400918ca7537f5"
 
 [[package]]
 name = "simd-adler32"

@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.3.0 (unreleased)
+## 0.3.1 (2026-11-16)
 
-The `datumesh` binary of datumesh-local 0.3.0: `datumesh mcp` (MCP over stdio, revision
+The `datumesh` binary of datumesh-local 0.3.1 (0.3.0 of the library was tagged, not published; 0.3.1 also fixes `publish` across file systems): `datumesh mcp` (MCP over stdio, revision
 2026-07-28 with the legacy `initialize` for 2025-11-25 and 2025-06-18; `--http [--port N]`,
 Streamable HTTP on 127.0.0.1 and [::1] only, define and publish behind a bearer token kept in a
 0600 file), `key rotate`, `trust add|revoke|list`, `root --namespace --key [--export]`, and
