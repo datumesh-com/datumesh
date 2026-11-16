@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2 (unreleased)
+
+The `datumesh` binary of datumesh-local 0.3.2: `find` falls through to the configured meshes
+(`find_meshes`, default `datumesh.com`) when the local names give nothing, one request per mesh,
+the answer kept 24 hours, and says where it looked (`searched`); classes and methods are found
+with plain descriptions. The Linux binaries are static (musl).
+
 ## 0.3.1 (2026-11-16)
 
 The `datumesh` binary of datumesh-local 0.3.1 (0.3.0 of the library was tagged, not published; 0.3.1 also fixes `publish` across file systems): `datumesh mcp` (MCP over stdio, revision
