@@ -2,7 +2,7 @@ name: release
 
 # When a tag v<version> is pushed (after datumesh-local of the same version is on crates.io):
 # the test workflow must pass and the tag must equal the crate's version; then the datumesh
-# binary is built for Linux (x86_64, aarch64), macOS (aarch64, x86_64) and Windows (x86_64)
+# binary is built for Linux (x86_64, aarch64; static, musl), macOS (aarch64, x86_64) and Windows (x86_64)
 # and attached to the GitHub release of the tag, and the crate is published to crates.io
 # through Trusted Publishing (OIDC). A version already on crates.io is skipped rather than
 # failing the run.
@@ -39,8 +39,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { target: x86_64-unknown-linux-gnu, os: ubuntu-latest, archive: tar.gz }
-          - { target: aarch64-unknown-linux-gnu, os: ubuntu-24.04-arm, archive: tar.gz }
+          # Linux: static (musl), so the binary runs on any Linux, old glibc or none.
+          - { target: x86_64-unknown-linux-musl, os: ubuntu-latest, archive: tar.gz }
+          - { target: aarch64-unknown-linux-musl, os: ubuntu-24.04-arm, archive: tar.gz }
           - { target: aarch64-apple-darwin, os: macos-latest, archive: tar.gz }
           - { target: x86_64-apple-darwin, os: macos-latest, archive: tar.gz } # cross-built on arm64
           - { target: x86_64-pc-windows-msvc, os: windows-latest, archive: zip }
@@ -49,7 +50,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - run: rustup toolchain install 1.99 --profile minimal --target ${{ matrix.target }} && rustup default 1.99
+      - if: contains(matrix.target, 'musl')
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq musl-tools
       - run: cargo build --release --locked --target ${{ matrix.target }}
+      - name: static
+        if: contains(matrix.target, 'musl')
+        run: |
+          file "target/${{ matrix.target }}/release/datumesh"
+          ! ldd "target/${{ matrix.target }}/release/datumesh" 2>&1 | grep -q '=>'
       - name: archive
         shell: bash
         run: |

@@ -9,7 +9,8 @@ cargo install datumesh
 ```
 
 gives you `datumesh`. Prebuilt binaries for Linux (x86_64, aarch64), macOS (aarch64, x86_64)
-and Windows (x86_64) are attached to each GitHub release.
+and Windows (x86_64) are attached to each GitHub release. From 0.3.2 the Linux binaries are
+static (`x86_64-unknown-linux-musl`, `aarch64-unknown-linux-musl`): they need no particular glibc.
 
 ```text
 datumesh get 'ecb/fx_rate(base: "EUR", quote: "USD", date: 2026-10-30)'

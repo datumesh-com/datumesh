@@ -41,3 +41,17 @@ jobs:
       - uses: actions/checkout@v7
       - run: rustup toolchain install 1.99 --profile minimal && rustup default 1.99
       - run: tools/package_test.sh --native
+
+  # The release's Linux binaries are static (musl): build one here, so a break shows before a tag.
+  musl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: rustup toolchain install 1.99 --profile minimal --target x86_64-unknown-linux-musl && rustup default 1.99
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq musl-tools
+      - run: cargo build --release --locked --target x86_64-unknown-linux-musl
+      - run: |
+          b=target/x86_64-unknown-linux-musl/release/datumesh
+          file "$b"
+          ! ldd "$b" 2>&1 | grep -q '=>'
+          "$b" --version
