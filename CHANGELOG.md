@@ -1,6 +1,13 @@
 # Changelog
 
-## 0.3.2 (unreleased)
+## 0.3.3 (2026-11-18)
+
+The `datumesh` binary of datumesh-local 0.3.3 (with datumesh-http 0.3.2): over MCP, `get` returns
+a text blob's content (up to 64 KiB) first, checked against its SHA-256 (`blob_checked`), or
+otherwise its `blob://` address and size; a mismatch is `E_BLOB_MISMATCH`, never a partial
+answer. The `blob://<sha256>` resource reads a held blob, checked.
+
+## 0.3.2 (2026-11-18)
 
 The `datumesh` binary of datumesh-local 0.3.2: `find` falls through to the configured meshes
 (`find_meshes`, default `datumesh.com`) when the local names give nothing, one request per mesh,
