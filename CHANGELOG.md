@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 (2026-11-19)
+
+The `datumesh` binary of datumesh-local 0.4.0 (with datumesh-http 0.4.1, spec-0.6.0): `find`
+fills a plain reference in one step and shows each match's canonical call and label; over MCP,
+the `whatif` tool evaluates a scenario (value and slice overrides, `solve`) locally or at the
+cell's mesh, never stored; `define --tests` takes tests with a formula; `publish --to <mesh>`
+roots names and posts the bundle to a public mesh, which needs tests for a calculated function
+(the refusal lists what is missing).
+
 ## 0.3.3 (2026-11-18)
 
 The `datumesh` binary of datumesh-local 0.3.3 (with datumesh-http 0.3.2): over MCP, `get` returns
