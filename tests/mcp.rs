@@ -71,9 +71,20 @@ fn assert_tools_in_order(v: &str) {
     assert_eq!(v.matches(r#""inputSchema""#).count(), TOOLS.len(), "{v}");
 }
 
-// 0.4.0: whatif and publish_public (datumesh-local 0.4.0).
-const TOOLS: [&str; 10] =
-    ["find", "get", "explain", "describe", "verify", "define", "publish", "subscribe", "whatif", "publish_public"];
+// 0.4.0: whatif and publish_public (datumesh-local 0.4.0); 0.4.2: calc (datumesh-local 0.4.2).
+const TOOLS: [&str; 11] = [
+    "find",
+    "get",
+    "explain",
+    "describe",
+    "verify",
+    "define",
+    "publish",
+    "subscribe",
+    "whatif",
+    "calc",
+    "publish_public",
+];
 
 #[test]
 fn modern_discover_and_tools_list() {

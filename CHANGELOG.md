@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2 (2026-11-20)
+
+The `datumesh` binary of datumesh-local 0.4.2: `datumesh calc <formula>` (and the MCP tool `calc`)
+evaluates a formula over cells in one call and answers its value with its lineage; here it is kept
+as the memoised local cell `local/calc_<hash>()`, found later with `find`; `--remote` asks the
+forward mesh's `x_calc` and keeps nothing. A slice `get` of more than 100 members answers a summary,
+the first 100 and the exact `calc` call that aggregates it.
+
 ## 0.4.1 (2026-11-20)
 
 The `datumesh` binary of datumesh-local 0.4.1 (with datumesh-http 0.4.2, spec-0.6.1): names with a
