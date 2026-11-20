@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1 (2026-11-20)
+
+The `datumesh` binary of datumesh-local 0.4.1 (with datumesh-http 0.4.2, spec-0.6.1): names with a
+DNS name as a namespace segment after the host (`datumesh.com/relay/ecb.europa.eu/fx_reference`)
+are read, defined against and verified; `find` and `describe` show the publisher (always the host)
+and a relayed function's source as separate fields; a name that spec-0.6.1 refuses is
+`E_CANON_NAME`.
+
 ## 0.4.0 (2026-11-19)
 
 The `datumesh` binary of datumesh-local 0.4.0 (with datumesh-http 0.4.1, spec-0.6.0): `find`
