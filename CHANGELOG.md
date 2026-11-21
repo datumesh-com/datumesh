@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.3 (2026-11-21)
+
+The `datumesh` binary of datumesh-local 0.4.3: `describe` of a function lists its tests: for a
+function on a public mesh, the count, the last run's time and result and the first 100 cases
+(call, expectation, result) with the total, read from the mesh's function page; for a local
+formula, its own tests; otherwise "no tests".
+
 ## 0.4.2 (2026-11-20)
 
 The `datumesh` binary of datumesh-local 0.4.2: `datumesh calc <formula>` (and the MCP tool `calc`)
