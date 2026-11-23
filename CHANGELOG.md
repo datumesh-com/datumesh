@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 (2026-11-23)
+
+The `datumesh` binary of datumesh-local 0.5.0 (with datumesh-http 0.5.0, spec-0.7.0): the MCP instructions use the mesh's `held` sentence verbatim; `get` of a withdrawn cell, or through a withdrawn label, says it is not covered and gives the reason (exit 3, the reason on stderr); `describe` of a closed name says it is unbound.
+
 ## 0.4.3 (2026-11-21)
 
 The `datumesh` binary of datumesh-local 0.4.3: `describe` of a function lists its tests: for a

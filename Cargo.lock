@@ -421,16 +421,16 @@ dependencies = [
 
 [[package]]
 name = "datumesh"
-version = "0.4.3"
+version = "0.5.0"
 dependencies = [
  "datumesh-local",
 ]
 
 [[package]]
 name = "datumesh-core"
-version = "0.3.10"
+version = "0.3.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c9047b3c196ad3f201371bf76527776cd88dfd050ada8333f883c2fc862dbf98"
+checksum = "0c13436dad1b2821a564fdf744f4217e7eb8f5b8c2823b4128aee759ff44730a"
 dependencies = [
  "curve25519-dalek",
  "sha2",
@@ -439,9 +439,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-engine"
-version = "0.5.0"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78992adc5ec0796487129d99febee2dfb1f3dc25054eaaa1d6e7cae6e6c2166b"
+checksum = "9e554770947d53e3f2d3c15e45827883466432ce4488a43303df5afa29f6fa0f"
 dependencies = [
  "datumesh-core",
  "datumesh-store",
@@ -450,9 +450,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-formula"
-version = "0.5.1"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0547e7077e5cfb6479037cb9da2e8cab9530fcdcc0f67556f73a8052da27ab1e"
+checksum = "e3fbeeb2bf7cf1eed6c01ffbc0716d548ce0f32300d50f473ec240372ea90ad6"
 dependencies = [
  "datumesh-core",
  "datumesh-engine",
@@ -462,9 +462,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-http"
-version = "0.4.2"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a50a86dd9c770ad6e939c1508e71b269b82a00435fec01702dcccd39ce1985f"
+checksum = "2708fc92bfcc90e2d17566be86286c9406becfaa54aba72f5331ef28179dd6e9"
 dependencies = [
  "arrow-array",
  "arrow-ipc",
@@ -491,9 +491,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-local"
-version = "0.4.3"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ab9467271a0b9fba473f36680de8a04352e99a819d9a477823fd8a0e62143b01"
+checksum = "b4f351fe2273a890b0f2e9b53e31bbb42f110fc96217ad7ee7cd23c49645010b"
 dependencies = [
  "axum",
  "datumesh-core",
@@ -511,9 +511,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-store"
-version = "0.5.1"
+version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fa7e4be53d115ef55be0efc62f7ed857d96c135e9f0501fd1796efcf08204966"
+checksum = "884c8333ce523fc8d2d9bb001398e7c4a2a3094cfc9f84c4efd1fb2e632454cf"
 dependencies = [
  "datumesh-core",
  "postgres",
