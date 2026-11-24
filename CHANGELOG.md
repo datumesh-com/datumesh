@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 (2026-11-24)
+
+The `datumesh` binary of datumesh-local 0.5.1 (with datumesh-engine 0.6.1): production defaults for a new home (`forward_mesh` datumesh.com; the short names `ecb/`, `treasury/`, `boe/`, `scripture/` and `earth/` are production's; an existing home is not rewritten and gets a one-line notice); `datumesh licence accept|list|revoke`, so a calculation or your own function over relayed data whose licence you have accepted is computed on this machine (several restricted licences give `LicenseRef-datumesh-local-derivation`) and is never published or exported; positional calls in formulas use the callee's declared order; the MCP tool `interval`, every member's receipt verified; `describe` asks a function's page by its full name; `verify` says `signed` unless it recomputed.
+
 ## 0.5.0 (2026-11-23)
 
 The `datumesh` binary of datumesh-local 0.5.0 (with datumesh-http 0.5.0, spec-0.7.0): the MCP instructions use the mesh's `held` sentence verbatim; `get` of a withdrawn cell, or through a withdrawn label, says it is not covered and gives the reason (exit 3, the reason on stderr); `describe` of a closed name says it is unbound.
