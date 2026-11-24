@@ -71,8 +71,9 @@ fn assert_tools_in_order(v: &str) {
     assert_eq!(v.matches(r#""inputSchema""#).count(), TOOLS.len(), "{v}");
 }
 
-// 0.4.0: whatif and publish_public (datumesh-local 0.4.0); 0.4.2: calc (datumesh-local 0.4.2).
-const TOOLS: [&str; 11] = [
+// 0.4.0: whatif and publish_public (datumesh-local 0.4.0); 0.4.2: calc (datumesh-local 0.4.2);
+// 0.5.1: interval (datumesh-local 0.5.1).
+const TOOLS: [&str; 12] = [
     "find",
     "get",
     "explain",
@@ -83,6 +84,7 @@ const TOOLS: [&str; 11] = [
     "subscribe",
     "whatif",
     "calc",
+    "interval",
     "publish_public",
 ];
 
