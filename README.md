@@ -12,6 +12,38 @@ gives you `datumesh`. Prebuilt binaries for Linux (x86_64, aarch64), macOS (aarc
 and Windows (x86_64) are attached to each GitHub release. From 0.3.2 the Linux binaries are
 static (`x86_64-unknown-linux-musl`, `aarch64-unknown-linux-musl`): they need no particular glibc.
 
+The first call, against the live mesh at datumesh.com: the ECB's euro reference rate for the US
+dollar on 20 November 2026.
+
+```text
+$ datumesh get 'datumesh.com/relay/ecb.europa.eu/fx_reference(USD, 2026-11-20)'
+{"fn_hash":"10996175…","outcome":"ok","receipt":{…,"value":"1.099"},"trust":"relayed"}
+ok (fetched); signer datumesh.com#eddd0c12fedb022e
+```
+
+The web address of the same cell is
+<https://datumesh.com/cell/datumesh.com/relay/ecb.europa.eu/fx_reference(USD,2026-11-20)>.
+Getting data, calculating and connecting an agent are on **[datumesh.com/docs](https://datumesh.com/docs/)**.
+
+```text
+datumesh get 'datumesh.com/relay/treasury.gov/par_yield(10Y, 2026-11-20)'
+datumesh describe 'datumesh.com/scripture/verse'
+datumesh get 'datumesh.com/scripture/verse(tanakh, Gen, 1, 1).text(uxlc)'
+datumesh serve
+datumesh mcp
+datumesh --help
+```
+
+A request may be a call in the method form (`datumesh.com/scripture/verse(tanakh, Gen, 1, 1).text(uxlc)`),
+which gives the same cell as its plain read; the answer's `resolved` says what the call resolved,
+and the stderr line names the canonical call. `describe <id>` takes a class name, a key encoding,
+an object id, a short id or a cell id; exit status 0 for an answer, 3 for any other.
+
+### The test mesh
+
+Out of the box, short names such as `ecb/` and `scripture/` and the forwarded requests go to the
+test mesh, mesh-test.datumesh.com, whose names differ from production's:
+
 ```text
 datumesh get 'ecb/fx_rate(base: "EUR", quote: "USD", date: 2026-10-30)'
 datumesh prefetch 'ecb/fx_rate(base: *, quote: *, date: *)'
@@ -20,14 +52,7 @@ datumesh define local/closed --formula '…' --signature '…'
 datumesh define local/pair --class pair.json
 datumesh describe 'ecb/fx_pair'
 datumesh get 'ecb/fx_pair(EUR, USD).rate(2026-10-30)'
-datumesh serve
-datumesh --help
 ```
-
-A request may be a call in the method form (`ecb/fx_pair(EUR, USD).rate(2026-10-30)`), which
-gives the same cell as its plain read; the answer's `resolved` says what the call resolved, and
-the stderr line names the canonical call. `describe <id>` takes a class name, a key encoding, an
-object id, a short id or a cell id; exit status 0 for an answer, 3 for any other.
 
 See datumesh-local's README for the commands, the `local.invalid` namespace, the licence gate,
 offline answers (`E_FOREIGN_UNAVAILABLE`), export and import, and the configuration.
