@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2 (2026-11-25)
+
+The `datumesh` binary of datumesh-local 0.5.2 (with datumesh-engine 0.6.1): a local evaluation fetches the slice members it reads on demand, verified, up to `slice_fetch_max` (default 50,000; past it `E_SLICE_FETCH_LIMIT`); `datumesh whatif <request> --set '<cell>=<value>'`, and `POST /whatif` on `datumesh serve`; `define --tests` takes slice inputs; `datumesh mcp --profile small` (find, get, calc and interval, about 380 tokens on the approximation); `datumesh allow add|list|remove <domain>`; a `peers` origin must be `http://` or `https://`; a local `calc` answers text, date, instant and boolean results with their type; the held sentence is carried once, in the instructions; when the catalogue summary cannot be fetched the instructions say so and it is tried again at most once a minute; `find` with no match says "nothing on this mesh matches; look elsewhere" and marks each unavailable place `retry`; an older home's missing short names (`boe/`) come from the defaults.
+
 ## 0.5.1 (2026-11-24)
 
 The `datumesh` binary of datumesh-local 0.5.1 (with datumesh-engine 0.6.1): production defaults for a new home (`forward_mesh` datumesh.com; the short names `ecb/`, `treasury/`, `boe/`, `scripture/` and `earth/` are production's; an existing home is not rewritten and gets a one-line notice); `datumesh licence accept|list|revoke`, so a calculation or your own function over relayed data whose licence you have accepted is computed on this machine (several restricted licences give `LicenseRef-datumesh-local-derivation`) and is never published or exported; positional calls in formulas use the callee's declared order; the MCP tool `interval`, every member's receipt verified; `describe` asks a function's page by its full name; `verify` says `signed` unless it recomputed.
