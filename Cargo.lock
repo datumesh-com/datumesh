@@ -421,7 +421,7 @@ dependencies = [
 
 [[package]]
 name = "datumesh"
-version = "0.5.2"
+version = "0.5.3"
 dependencies = [
  "datumesh-local",
 ]
@@ -439,9 +439,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-engine"
-version = "0.6.1"
+version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0fc224191b73cff06cd09178faeab3b9b6aad2e9fd7de69b5a8dca2f50882697"
+checksum = "fe4be209609bc2e00b9473977601a8fbc5a9497f390b718d3e59727e352696fb"
 dependencies = [
  "datumesh-core",
  "datumesh-store",
@@ -450,9 +450,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-formula"
-version = "0.6.1"
+version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e3fbeeb2bf7cf1eed6c01ffbc0716d548ce0f32300d50f473ec240372ea90ad6"
+checksum = "9915859f166a5eb5b4cfece101da4c587d7b8e8a525ef9a6192641ee91cb3d62"
 dependencies = [
  "datumesh-core",
  "datumesh-engine",
@@ -462,9 +462,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-http"
-version = "0.5.0"
+version = "0.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2708fc92bfcc90e2d17566be86286c9406becfaa54aba72f5331ef28179dd6e9"
+checksum = "151a5db3a985da928e0e8ad329a39e791474a237366d9fff9ba68b81f25cb5b6"
 dependencies = [
  "arrow-array",
  "arrow-ipc",
@@ -491,9 +491,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-local"
-version = "0.5.2"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41ce40b6df260b2776674fe53239a925468026fe7db1e41654248cf2e180ac2f"
+checksum = "796d2aad61a76bb219e73808a46b7d79fd213694c8f7a23ce686e9b49cc4cf0c"
 dependencies = [
  "axum",
  "datumesh-core",
@@ -511,9 +511,9 @@ dependencies = [
 
 [[package]]
 name = "datumesh-store"
-version = "0.6.3"
+version = "0.6.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "884c8333ce523fc8d2d9bb001398e7c4a2a3094cfc9f84c4efd1fb2e632454cf"
+checksum = "42c12630e3805865a9ce01b3b06361e953b8d67cbc6fb1ee001b79350cce441f"
 dependencies = [
  "datumesh-core",
  "postgres",
