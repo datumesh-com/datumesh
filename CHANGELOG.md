@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.5 (2026-11-28)
+
+The `datumesh` binary of datumesh-local 0.5.5, the agent tools:
+- `get`'s description points to `interval` and to a calc over a slice for many dates;
+- interval and slice answers are compact rows of call, value and receipt hash;
+- `get` accepts a quoted canonical date and `date(y, m, d)`;
+- an unlicensed answer also says that with `remote` the calculation runs on the mesh;
+- failed reads say why: the nearest dates, the values a key takes, near names, and find for a name the mesh does not hold;
+- a label is not read as a call (`E_LABEL`, with the top matches);
+- a refused long interval says the most it takes and how to page;
+- the small profile is held to about 4 KiB an answer (pages of 15, 10 find results), and its `calc` declares `remote` and its `interval` `keys`.
+
 ## 0.5.4 (2026-11-28)
 
 The `datumesh` binary of datumesh-local 0.5.4: when a mesh answers a read `pending` (202), the client follows the job's `poll` link, waiting the answer's estimate (1 to 10 s), until it is done or the client's timeout; it does not send the read again while the job is known, and sends it once more if the mesh has forgotten the job (`E_JOB_UNKNOWN`). A read as of a past time now finishes.
