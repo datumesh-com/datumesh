@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.4 (2026-11-28)
+
+The `datumesh` binary of datumesh-local 0.5.4: when a mesh answers a read `pending` (202), the client follows the job's `poll` link, waiting the answer's estimate (1 to 10 s), until it is done or the client's timeout; it does not send the read again while the job is known, and sends it once more if the mesh has forgotten the job (`E_JOB_UNKNOWN`). A read as of a past time now finishes.
+
 ## 0.5.3 (2026-11-27)
 
 The `datumesh` binary of datumesh-local 0.5.3 (with datumesh-store 0.6.5, datumesh-engine 0.6.2 and datumesh-http 0.5.5): a calc's lineage gives a slice read one entry (entry, slice, members, members hash); the MCP text part is a short answer and the structured part the envelope; tool answers are budgeted (lineage cut to 20 with an `explain` pointer, `explain` paged, a slice `get` 100 members at a time); `notifications/tools/list_changed` after a catalogue retry succeeds; `datumesh --help` lists every command; a failed `get`, `explain` or `describe` is an error with its code; a slice `get` is bound by `slice_fetch_max`, and a foreign slice's `next` page is read. On the guard releases: each version carries its recorded time and a backdated version of a cell is refused (`E_BACKDATED`); a read that names an asof stores nothing and is signed each time; a bundle carries every slice manifest its receipts read, rebuilt when none is stored.
